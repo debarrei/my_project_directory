@@ -72,4 +72,16 @@ class TaskController extends AbstractController
         // $this->em->flush();
         return new Response('borrada la tarea correctamente');
     }
+
+    #[Route('/update-task/{id}', name:'update_task')]
+    public function update(Task $task): Response
+    {
+        $task->setTitulo('cambio el titulo');
+        $this->em->persist($task);
+        $this->em->flush();
+        // $task=$this->em->getRepository(Task::class)->find($id);
+        // $this->em->remove($task);
+        // $this->em->flush();
+        return new Response('borrada la tarea correctamente');
+    }
 }
